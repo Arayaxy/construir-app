@@ -1,18 +1,12 @@
 const express = require('express');
 
-const app = express();
-const port = 3000
+const router = express.Router("./public/router/rutas");
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
-
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send("<h1>Práctica JWT</h1>");
 })
 
-
-
-app.get('/api', (req, res) => {
+router.get('/api', (req, res) => {
 
     res.status(200).json({
         posts: [
@@ -31,9 +25,7 @@ app.get('/api', (req, res) => {
 
 })
 
-
-
-app.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
     res.send(`
         <html>
             <head>
@@ -43,7 +35,7 @@ app.get('/login', (req, res) => {
                 <form method="POST" action="/auth">
                 
                     <div>Nombre de Usuario: <input type='text' name='username'> </div>
-                    <div>Contraseña: <input type='text' name='paswword'> </div>
+                    <div>Contraseña: <input type='text' name='password'> </div>
                     <div> <input type='submit' value='Iniciar sesión'  >  </div>
                 
                 </form>
@@ -52,18 +44,18 @@ app.get('/login', (req, res) => {
     `);
 })
 
-
-app.post('/auth', (req, res) => {
+router.post("/auth", (req, res) => {
     const { username, password } = req.body;
 
-    const user = { username: username }
-})
+    const user = {
+        username: username,
+    };
 
+    res.status(200).json({
+        mensaje: "Usuario recibido correctamente",
+        user: user,
+        password: password,
+    });
+});
 
-
-
-
-
-app.listen(port, () => {
-    console.log('a la escucha del ', port)
-})
+module.exports = router;

@@ -4,14 +4,25 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.6.1",
+    "ejs": "^5.0.2",
+    "express": "^4.22.2",
     "jsonwebtoken": "^9.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arayaxy/construir-app.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Arayaxy/construir-app/issues"
+  },
+  "homepage": "https://github.com/Arayaxy/construir-app#readme"
 }
